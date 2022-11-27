@@ -38,7 +38,7 @@ int main()
 
     MainMenu main;
     Decoration mydecor;
-    main.mainPage();
+    //main.mainPage();
     system("cls");
 
 
@@ -49,7 +49,7 @@ int main()
     cout << "\n\n\n\n\t\t\t\t\t\t\t\t3)   <<REGISTER A NEW CARD>>"<<endl;
     cout << "\n\n\n\n\t\t\t\t\t\t\t\t4)   <<DEPOSIT>>"<<endl;
     cout << "\n\n\n\n\t\t\t\t\t\t\t\t5)   <<EXIT>>"<<endl;
-    cout << "\n\n\n\n\t\t\t\t\t\t\t\t";
+    cout << "\n\n\n\n\t\t\t\t\t\t\t\t   ENTER YOUR CHOICE : ";
     cin >>choice;
     switch(choice)
     {

@@ -64,7 +64,13 @@ void Decoration::slowDemDown() //function to display a please wait animation
     cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t";
     system("pause");
     system("cls");
-  cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\tLoading";
+  cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t";
+  char arraychar[]= {'L','o','a','d','i','n','g'};
+  for(int i=0l; i<=6; i++)
+  {
+      cout <<arraychar[i];
+      Sleep(200);
+  }
   int process = 0;
   for(process=0;process<25;process++)
   {

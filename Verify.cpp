@@ -161,7 +161,7 @@ int Verify::nameCheck(string& name)  // function to check if name input is corre
     {
         if (slash ==2)
         {
-            cout << "YOU ARE ONLY ALLOWED TO USE 2 '-' IN EACH NAME"<<endl;
+            cout << "YOU ARE ONLY ALLOWED TO USE 1 '-' IN EACH NAME"<<endl;
             return 0;
         }
         if (isalpha(name[i]))
@@ -349,7 +349,7 @@ int Verify::dOfbCheck(int& Day, int& Month, int& Year)  // function to check if 
         return 0;
     }
 
-    if(Year < 1880 )
+    if(Year < 1900 )
     {
         cout <<"CANT ACCEPT THIS AGE, TOO OLD"<<endl;
         return 0;

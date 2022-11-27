@@ -28,7 +28,7 @@
 1573735759 c:\users\ibrahim\desktop\c++\atm emulator system\exception.h
 	<iostream>
 
-1575302796 source:c:\users\ibrahim\desktop\c++\atm emulator system\mainmenu.cpp
+1578490487 source:c:\users\ibrahim\desktop\c++\atm emulator system\mainmenu.cpp
 	"MainMenu.h"
 	"Verify.h"
 	"Decoration.h"
@@ -48,10 +48,10 @@
 	<iomanip>
 	<time.h>
 
-1574772290 c:\users\ibrahim\desktop\c++\atm emulator system\mainmenu.h
+1578860880 c:\users\ibrahim\desktop\c++\atm emulator system\mainmenu.h
 	"structures.h"
 
-1575105293 c:\users\ibrahim\desktop\c++\atm emulator system\verify.h
+1578482103 c:\users\ibrahim\desktop\c++\atm emulator system\verify.h
 	"structures.h"
 	<iostream>
 	<fstream>
@@ -59,7 +59,7 @@
 	<iterator>
 	<sstream>
 
-1575112274 c:\users\ibrahim\desktop\c++\atm emulator system\operations.h
+1578482103 c:\users\ibrahim\desktop\c++\atm emulator system\operations.h
 	"structures.h"
 	"StackPtr.h"
 
@@ -95,7 +95,7 @@
 	<iostream>
 	<string>
 
-1575301852 source:c:\users\ibrahim\desktop\c++\atm emulator system\operations.cpp
+1578482103 source:c:\users\ibrahim\desktop\c++\atm emulator system\operations.cpp
 	"Verify.h"
 	"Operations.h"
 	"Decoration.h"
@@ -119,7 +119,7 @@
 	<iomanip>
 	<time.h>
 
-1575112595 source:c:\users\ibrahim\desktop\c++\atm emulator system\verify.cpp
+1578482103 source:c:\users\ibrahim\desktop\c++\atm emulator system\verify.cpp
 	"Verify.h"
 	<iostream>
 	<conio.h>
@@ -139,7 +139,7 @@
 	<iterator>
 	<ctime>
 
-1575302721 source:c:\users\ibrahim\desktop\c++\atm emulator system\main.cpp
+1578483423 source:c:\users\ibrahim\desktop\c++\atm emulator system\main.cpp
 	<iostream>
 	<conio.h>
 	<ctype.h>
@@ -201,4 +201,221 @@
 	"MainMenu.h"
 	"Operations.h"
 	"Verify.h"
+
+1567113292 source:c:\users\ibrahim\desktop\c++\atm emulator system\queueptr.cpp
+
+1567294384 source:c:\users\ibrahim\desktop\c++\atm emulator system\stackptr.cpp
+	"StackPtr.h"
+	"NodePtr.h"
+	<iostream>
+
+1573734885 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\exception.cpp
+	"Exception.h"
+	<iostream>
+
+1573735759 c:\users\cyber\desktop\desktops\c++\atm emulator system\exception.h
+	<iostream>
+
+1627835523 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\main.cpp
+	<iostream>
+	<conio.h>
+	<ctype.h>
+	<ctime>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+	<ctime>
+	"Decoration.h"
+	"MainMenu.h"
+	"Operations.h"
+	"Verify.h"
+
+1574070111 c:\users\cyber\desktop\desktops\c++\atm emulator system\decoration.h
+	"structures.h"
+
+1573647653 c:\users\cyber\desktop\desktops\c++\atm emulator system\structures.h
+	<string>
+
+1578860880 c:\users\cyber\desktop\desktops\c++\atm emulator system\mainmenu.h
+	"structures.h"
+
+1627839467 c:\users\cyber\desktop\desktops\c++\atm emulator system\operations.h
+	"structures.h"
+	"StackPtr.h"
+
+1567018579 c:\users\cyber\desktop\desktops\c++\atm emulator system\stackptr.h
+	"NodePtr.h"
+	<iostream>
+
+1567113114 c:\users\cyber\desktop\desktops\c++\atm emulator system\nodeptr.h
+	<iostream>
+
+1578482103 c:\users\cyber\desktop\desktops\c++\atm emulator system\verify.h
+	"structures.h"
+	<iostream>
+	<fstream>
+	<vector>
+	<iterator>
+	<sstream>
+
+1627839846 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\mainmenu.cpp
+	"MainMenu.h"
+	"Verify.h"
+	"Decoration.h"
+	<iostream>
+	"Operations.h"
+	<conio.h>
+	<cstring>
+	<ctype.h>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+	"QueuePtr.h"
+
+1567345972 c:\users\cyber\desktop\desktops\c++\atm emulator system\queueptr.h
+	<iostream>
+	"QueueNode.h"
+
+1567114679 c:\users\cyber\desktop\desktops\c++\atm emulator system\queuenode.h
+
+1575112164 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\newverify.cpp
+	"NewVerify.h"
+	"Verify.h"
+	"Operations.h"
+	"Decoration.h"
+	<iostream>
+	<conio.h>
+	<ctime>
+	<ctype.h>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<vector>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+
+1575112135 c:\users\cyber\desktop\desktops\c++\atm emulator system\newverify.h
+	<iostream>
+	<string>
+
+1627839803 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\operations.cpp
+	"Verify.h"
+	"Operations.h"
+	"Decoration.h"
+	"NewVerify.h"
+	"MainMenu.h"
+	<iostream>
+	<conio.h>
+	<ctime>
+	<ctype.h>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<vector>
+	<string.h>
+	<string>
+	<cstring>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+
+1574797715 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\themainclass.cpp
+	"TheMainClass.h"
+	<iostream>
+	<conio.h>
+	<ctype.h>
+	<ctime>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<ctime>
+	"Decoration.h"
+	"MainMenu.h"
+	"Operations.h"
+	"Verify.h"
+
+1574797798 c:\users\cyber\desktop\desktops\c++\atm emulator system\themainclass.h
+	"TheMainClass.h"
+	<iostream>
+	<conio.h>
+	<ctype.h>
+	<ctime>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<ctime>
+	"Decoration.h"
+	"MainMenu.h"
+	"Operations.h"
+	"Verify.h"
+
+1587072528 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\decoration.cpp
+	"Decoration.h"
+	<iostream>
+	<conio.h>
+	<ctype.h>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+
+1583775111 source:c:\users\cyber\desktop\desktops\c++\atm emulator system\verify.cpp
+	"Verify.h"
+	<iostream>
+	<conio.h>
+	<ctype.h>
+	<direct.h>
+	<process.h>
+	<windows.h>
+	<string.h>
+	<stdio.h>
+	<fstream>
+	<string.h>
+	<stdlib.h>
+	<iomanip>
+	<time.h>
+	<sstream>
+	<vector>
+	<iterator>
+	<ctime>
 

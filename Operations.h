@@ -29,8 +29,8 @@ public:
     void balance(string& acct); // function to get the ledger and available balance
     string accountType(); // function to choose between the three available account types
     void randNum(string& accountNumber); // function to generate random account numbers
-    void randCardNum(string& accountNumber); // generate random card number
-    void randCVVNum(string& accountNumber); //generate random CVV number
+    char randCardNum(); // generate random card number
+    char randCVVNum(); //generate random CVV number
     void readAndClean(int& n);  // function to read in numbers and clean the unnecessary characters
 
 

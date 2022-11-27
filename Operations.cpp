@@ -1948,57 +1948,33 @@ void Operations::readAndClean(int& n)  // function to read in numbers and clean 
 
 
 
-void Operations::randCVVNum(string& accountNumber) // function to generate random numbers
+char Operations::randCVVNum() // function to generate random numbers
 {
     srand(time(0));
-
-
-
-
+    char mynum;
     char numbers[10]= {'1','2','3','4','5','6','7','8','9','0'};
 
-    for (int i=0; i<3; i++)
-    {
-        accountNumber[i] = numbers[(rand()%10)+1];
-    }
-    /*
-    for(int i=0;i<10;i++)
-    {
 
-        cout <<accountNumber[i];
-    }
-*/
+        mynum = numbers[(rand()%9)+1];
 
-
-
+return mynum;
 
 }
 
 
-void Operations::randCardNum(string& accountNumber) // function to generate random numbers
+char Operations::randCardNum() // function to generate random numbers
 {
     srand(time(0));
 
-
+    char mynum;
 
 
     char numbers[10]= {'1','2','3','4','5','6','7','8','9','0'};
 
-    for (int i=0; i<16; i++)
-    {
-        accountNumber[i] = numbers[(rand()%10)+1];
-    }
-    /*
-    for(int i=0;i<10;i++)
-    {
-
-        cout <<accountNumber[i];
-    }
-*/
+     mynum = numbers[(rand()%9)+1];
 
 
-
-
+return mynum;
 }
 
 

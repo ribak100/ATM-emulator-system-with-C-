@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <time.h>
+#include "QueuePtr.h"
 
 using namespace std;
 
@@ -138,6 +139,8 @@ void MainMenu::createAccount() // function to create a new account
     }while(v != 1);
     string accountTyp;
     accountTyp = op.accountType();
+    system("cls");
+    cout <<"\n\n\n\n\n\n\n\n\n";
     cout <<"VERIFY AND CONFIRM YOUR INFORMATION"<<endl;
     cout <<"YOUR NAME INFORMATION"<<endl;
     cout << "YOUR SURNAME : "<<surname<<endl;
@@ -211,6 +214,7 @@ void MainMenu::createAccount() // function to create a new account
     {
         cout << "OK"<<endl;
         cout <<"**ACCOUNT CREATED SUCCESSFULLY**\n"<<"THANK YOU FOR BANKING WITH US"<<endl;
+        Sleep(200);
         goto putinfile;
 
     }
@@ -218,12 +222,14 @@ void MainMenu::createAccount() // function to create a new account
     {
 
         cout <<"OK WE WILL PROVIDE ANOTHER"<<endl;
+        Sleep(200);
         system("cls");
         goto chooseNew;
     }
     else
     {
         cout <<"PLEASE ENTER A VALID INPUY Y FOR YES AND N FOR NO"<<endl;
+        Sleep(200);
         system("cls");
         goto come3;
     }
@@ -307,7 +313,7 @@ int MainMenu::enterPin(string& accountNum)  // function to enter the ATM pin
 
 void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to an existing account
 {
-        Verify myverfy;
+    Verify myverfy;
     Operations op;
     Decoration mydecor;
     int count =0;
@@ -318,6 +324,11 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
     acc:
     mydecor.slowDemDown();
     account_number = acct; //still need to verify this in some way
+
+    ifstream infile("account.txt");
+    fstream newCard("newCardInfo.txt", ios::app);
+    //fstream check2("checkAccounts.txt", ios::app); //temporary file, will remove later
+    //fstream check("checkAccount.txt", ios::app); //temporary file, will remove later
 
 
     cout <<"\nENTER YOUR SURNAME : ";
@@ -371,10 +382,6 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
      }while(f != 1);
 
 
-    ifstream infile("account.txt");
-    fstream newCard("newCardInfo.txt", ios::app);
-    //fstream check2("checkAccounts.txt", ios::app); //temporary file, will remove later
-    //fstream check("checkAccount.txt", ios::app); //temporary file, will remove later
 
     if(count == 6)
     {
@@ -419,7 +426,8 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                         if(accountType == file_accountType)
                         {
 
-                            string CVV, cardNumber;
+                            char CVV[3];
+                             char cardNumber[16];
                             char pin[4];
                             string verfypin;
                             pin:cout<< "ENTER PIN : ";
@@ -441,19 +449,25 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                                 }
 
 
-                            if(cardNumber == "ade")
+                            if(cardNumber[1] == 'a')
                             {
                                 cout <<"SORRY THE CARD NUMBER WE CHOOSE FOR U IS NOT AVAILABE, YOU WILL RECIEVE A NEW ONE SHORTLY"<<endl;
                                 goto chooseNew2;
                             }
 
-                            chooseNew2:cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tYOUR CARD NUMBER IS : ";
-                            op.randCardNum(cardNumber);
+                            chooseNew2:cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tPLEASE WAIT WHILE WE GENERATE YOUR CARD NUMBER...";
+
+                            for (int i=0; i<16; i++)
+                            {
+                                cardNumber[i] = op.randCardNum();
+                                Sleep(1000);
+                            }
+                            cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tYOUR CARD NUMBER IS : ";
                             for(int i=0; i<16; i++)
                             {
                                 cout <<cardNumber[i];
                             }
-/*
+                                /*
                             for(int i=0;i<16;i++)
                             {
                                 check2 <<cardNumber[i];
@@ -471,6 +485,7 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                                 {
                                 */
                                 cout << "\nIS THE CARD NUMBER PROVIDED FOR YOU A VALID 16 DIGIT NUMBER, WITH NO SPACE IN BETWEEN, PLEASE VERIFY(count) (y/n)"<<endl;
+                                cout <<"THERE MUST BE NO WEIRD CHARACTERS AND THE LAST NUMBER SHOULD BE DIRECTLY ABOVE 'y' IF YOU DON'T WANT TO COUNT"<<endl;
                                 char choice;
                                 come2:cout << "ENTER YOUR CHOICE : ";
                                 cin >> choice;
@@ -490,48 +505,45 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                                 else
                                 {
                                 cout <<"PLEASE ENTER A VALID INPUY Y FOR YES AND N FOR NO"<<endl;
-                                system("cls");
+                                //system("cls");
                                 goto come2;
                                 }
 
-                                /*
-                                for (int i=0; i<16; i++)
-                                    {
-                                        if((cardNumber[i]>46 )&&(cardNumber[i]<58))
-                                        {
-                                           continue;
-                                        }
-                                        else
-                                        {
-                                            goto exist2;
-                                        }
-                                    }
-                                */
 
+                              putinfilecardnum:
+                              QueuePtr<char> myQueue;
 
-
-                               // }
-
-                            //}
-
-                                putinfilecardnum:for(int i=0;i<16;i++)
+                                for(int i=0; i<16; i++)
                                 {
-                                    newCard <<cardNumber[i];
+                                    myQueue.enqueue(cardNumber[i]);
+                                }
+                                char x;
+                                for (int i =0; i<16; i++)
+                                {
+                                    myQueue.dequeue(x);
+                                    newCard << x;
                                 }
 
-                            if(CVV == "kgh")
+
+                            if(CVV[1] == 'b')
                             {
                                 cout <<"SORRY THE CVV WE CHOOSE FOR U IS NOT AVAILABE, YOU WILL RECIEVE A NEW ONE SHORTLY"<<endl;
                                 goto chooseNew;
                             }
 
-                            chooseNew:cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tYOUR CVV IS : ";
-                            op.randCVVNum(CVV);
-                            for(int i=0;i<3;i++)
+
+                            chooseNew:cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tPLEASE WAIT WHILE WE GENERATE YOUR CVV...";
+
+
+                            for (int i=0; i<3; i++)
                             {
-
+                                CVV[i] = op.randCVVNum();
+                                Sleep(1000);
+                            }
+                            cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tYOUR CARD NUMBER IS : ";
+                            for(int i=0; i<3; i++)
+                            {
                                 cout <<CVV[i];
-
                             }
                     /*
                             //checkcv:
@@ -550,26 +562,26 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                                 else
                                 {
                             */
-                                cout << "\nIS THE CVV PROVIDED FOR YOU A VALID 3 DIGIT NUMBER, WITH NO SPACE IN BETWEEN, PLEASE VERIFY(count) (Y/N)"<<endl;
+                                cout << "\n\n\t\t\t\t\t\t\t\t\tIS THE CVV PROVIDED FOR YOU A VALID 3 DIGIT NUMBER, WITH NO SPACE IN BETWEEN, PLEASE VERIFY(count) (Y/N)"<<endl;
                                 char choice2;
-                                come4:cout << "ENTER YOUR CHOICE : ";
+                                come4:cout << "\n\t\t\t\t\t\t\t\t\tENTER YOUR CHOICE : ";
                                 cin >> choice2;
                                 if ((choice2 == 'y')||(choice2 == 'Y'))
                                 {
-                                    cout << "OK"<<endl;
-                                    cout <<"**CVV REGISTERED SUCCESSFULLY**\n"<<endl;
+                                    cout << "\n\t\t\t\t\t\t\t\t\tOK"<<endl;
+                                    cout <<"\n\t\t\t\t\t\t\t\t\t**CVV REGISTERED SUCCESSFULLY**\n"<<endl;
                                     goto putinfilecvv;
 
                                 }
                                 else if((choice2 == 'n')||(choice2 == 'N'))
                                 {
-                                cout <<"OK WE WILL PROVIDE ANOTHER"<<endl;
+                                cout <<"\n\t\t\t\t\t\t\t\t\tOK WE WILL PROVIDE ANOTHER"<<endl;
                                 system("cls");
                                 goto chooseNew;
                                 }
                                 else
                                 {
-                                cout <<"PLEASE ENTER A VALID INPUY Y FOR YES AND N FOR NO"<<endl;
+                                cout <<"\n\t\t\t\t\t\t\t\t\tPLEASE ENTER A VALID INPUY Y FOR YES AND N FOR NO"<<endl;
                                 system("cls");
                                 goto come4;
                                 }
@@ -599,13 +611,21 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
                                     newCard << CVV[i];
                                 }
 
-                                newCard<<" "<<pin<<" "<<account_number<<endl;
+                                newCard<<" ";
+                                for(int i=0;i<4;i++)
+                                {
+
+                                    newCard <<pin[i];
+                                }
+
+                                newCard<<" "<<account_number<<endl;
 
 
 
 
 
-                                cout <<"\n**CARD CREATED CREATED SUCCESSFULLY**\n"<<"THANK YOU FOR BANKING WITH US"<<endl;
+                                cout <<"\n\n\t\t\t\t\t\t\t\t\t**CARD CREATED CREATED SUCCESSFULLY**\n\n\t\t\t\t\t\t\t\t\t"<<"THANK YOU FOR BANKING WITH US"<<endl;
+                                system("pause");
 
                             }
                             else
@@ -647,10 +667,10 @@ void MainMenu::addCardInfo(string& acct)  // function to register an ATM card to
     }
 
     newCard.close();
-    cout <<"**THANK YOU FOR BANKING WITH US**"<<endl;
+    cout <<"\n\t\t\t\t\t\t\t\t\t**THANK YOU FOR BANKING WITH US**"<<endl;
     mydecor.delay();
     system("cls");
-    cout <<"PLEASE TAKE YOUR CARD..."<<endl;
+    cout <<"\n\t\t\t\t\t\t\t\t\tPLEASE TAKE YOUR CARD..."<<endl;
     Sleep(2000);
         //will later call another function there to ask if user want to perform another operation
     mydecor.callExit();
